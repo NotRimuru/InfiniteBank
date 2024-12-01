@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Transaction</title>
+    <link rel = "stylesheet" href = "../Css/NewTransaction.css">
+    <link rel = "stylesheet" href = "../Css/Global.css">
+    <script src = "../Js/Transactions.js"></script>
+    <script src = "../Js/NewTransaction.js"></script>
+</head>
+<body class = "no-select">
+    <div id = "content">
+        <div id = "buttons-container">
+            <div id = "outgoing-transaction" class = "pressed-button-color" style = "font-size: 3.5lvh;">Przelew Wychodzący</div>
+            <div id = "incoming-transaction" class = "button-color" style = "font-size: 3.5lvh;">Przelew Przychodzący</div>
+        </div>    
+        <form id = "container" class = "outgoing-transaction">
+            <input required class = "input" id = "name" type = "text" placeholder = "Name"> 
+            <input required class = "input" id = "title" type = "text" placeholder = "Title"> 
+            <select required class = "select" id = "category" type = "text" placeholder = "category"></select>
+            <input required class = "input" id = "amount" type = "number" min = 0.01 step = 0.01 placeholder = "Amount (PLN)">
+            <input required class = "input" id = "date" type = "date">    
+            <div id = "submit-container" style = "display: flex; gap: 3lvw">
+                <input required class = "input outgoing" id = "submit" type = "submit" value = "Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const date = document.getElementById('date');
+        const currentDate = new Date();
+        const dateFormat = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()}`;
+        date.disabled = true;
+        date.valueAsDate = new Date(dateFormat);
+
+        const category = document.getElementById('category');
+        category.innerHTML += `<option disabled style = 'color: grey'>categories</option>`;
+
+        for(const array of categories){
+            category.innerHTML += `<option value = '${array[0]}' style = 'color: ${array[1]}'>${array[0]}</option>`;
+        }
+
+        const buttons = document.getElementById('buttons-container');
+        const container = document.getElementById('container')
+        for(const button of buttons.children){
+            button.addEventListener('click', () => {
+                changeTransactionType(container, button.id);
+            });
+        }
+
+        const form = document.getElementById("container");
+        form.addEventListener('submit', handleForm)
+        
+    </script>
+</body>
+</html>

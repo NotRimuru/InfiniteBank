@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "../Css/TransactionList.css">
+    <link rel = "stylesheet" href = "../Css/Global.css">
+    <script src="../Js/TransactionList.js"></script>
+    <script src="../Js/Transactions.js"></script>
+</head>
+<body class = "no-select">
+    <div id = "table">
+        <p id = "info">Last 30 days</p>
+        <div id = "names">
+            <div class = "date container">Date</div>
+            <div class = "name container">Name</div>
+            <div class = "category container">Category</div>
+            <div class = "amount container">Amount</div>
+        </div>
+    </div>
+    <div id = "content">
+        <div id = "list"></div>
+    </div>
+    <script>
+        let transactions = localStorage.getItem('transactions');
+        let balance = localStorage.getItem('balance');
+        transactions = JSON.parse(transactions);
+        balance = JSON.parse(balance);
+
+        convertToDate(transactions);
+
+        let params = ['date', 'descending', 0];
+
+        const date = document.querySelector('.date');
+        date.style.setProperty('--text', `"▼"`);
+
+        displayTransactions(transactions, true);
+        
+        const names = document.getElementById('names');
+        for(const div of names.children){
+            div.addEventListener('click', () => {
+                sortOnClick(div, params, transactions);
+                displayTransactions(transactions, true);
+            })
+        }
+
+        const content = document.getElementById('content');
+        dragDiv(content)
+    </script>
+</body>
+</html>

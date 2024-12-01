@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Historia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "../Css/Global.css">
+    <link rel = "stylesheet" href = "../Css/HistoryPage.css">
+     
+    <script src = "../Js/Transactions.js"></script>
+    <script src = "../Js/TransactionList.js"></script>
+    <script src="../Js/HistoryPage.js"></script>
+</head>
+<body class = "no-select">
+    <div id="main-container">
+        <div id = "history-container">
+            <div id = "table">
+                <div class = "date container">Date</div>
+                <div class = "name container">Name</div>
+                <div class = "category container">Category</div>
+                <div class = "amount  container">Amount</div>
+            </div>
+            <div id = "list"></div>
+        </div>
+
+        <div id = "filter-container"> 
+            <h3>Filters:</h3>
+
+            <label for = "amount" class = "label">Amount: </label>
+            <input id = "amount" type = "number" step = "0.1" class = "input" placeholder="Amount">
+
+            <div class="multiselect" id = "amount-filter">
+                <div class="selectBox">
+                    <select>
+                        <option>Type</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+                <div class = "checkboxes">
+                </div>
+            </div>
+
+            <label for = "name-filter" class = "label">Name: </label>
+
+            <div class="multiselect" id = "name-filter">
+                <div class="selectBox">
+                    <select>
+                        <option>Names</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+                <div class = "checkboxes">
+                </div>
+            </div>
+
+            <label for = "category-filter" class = "label">Category: </label>
+
+            <div class="multiselect" id = "category-filter">
+                <div class="selectBox">
+                    <select>
+                        <option>Kategories</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+                <div class = "checkboxes">
+                </div>
+            </div>
+
+            <label for = "date" class = "label">Date: </label>
+
+            <input type = "date" class = "input" id = "date">
+            <div class="multiselect" id = "date-filter">
+                <div class="selectBox">
+                    <select>
+                        <option>Type</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+                <div class = "checkboxes">
+                </div>
+            </div>
+
+            <input id  = "filter" type = button value = "Filter">
+        </div>
+    </div>
+
+    <script>
+        let transactions = localStorage.getItem('transactions');
+        let balance = localStorage.getItem('balance');
+
+        transactions = JSON.parse(transactions);
+        balance = JSON.parse(balance);
+
+        transactions = convertToDate(transactions);
+
+        let sortParams = ['date', 'descending', 0];
+
+        const table = document.getElementById('table');
+        for(const div of table.children){
+            div.addEventListener('click', () => {
+                sortOnClick(div, sortParams, transactions);
+                displayTransactions(transactions);
+            })
+        }
+
+        displayTransactions(transactions);
+
+        const filter = document.getElementById("filter");
+        filter.addEventListener('click', () => {
+            transactions = filterTransactions();
+            displayTransactions(transactions);
+        })
+
+        const selectBoxes = document.getElementsByClassName("selectBox");
+        const checkboxes = document.getElementsByClassName("checkboxes");
+        for(let i = 0; i < selectBoxes.length; i++){
+            const selectBox = selectBoxes[i];
+            const checkbox = checkboxes[i];
+            forEachCheckbox(selectBox, checkbox, i);
+        }
+
+        const date = document.querySelector('.date');
+        date.style.setProperty('--text', `"▼"`);
+    </script>
+</body>
+</html>

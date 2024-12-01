@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Bank</title>
+    <link rel = "stylesheet" href = "Css/index.css">
+    <link rel = "stylesheet" href = "Css/Global.css">
+    <script src = "Js/Transactions.js"></script>
+    <script src = "Js/index.js"></script>
+</head>
+<body class = "no-select">
+
+    <div id="header">∞│<bankName>Infinite Bank</bankName></div>
+    <div id = "ribbon">
+        <div id = "home" class = "pressed-button-color">Home</div>
+        <div id = "transaction-history" class = "button-color">History</div>
+        <div id = "transaction-statistics" class = "button-color">Statistics</div>
+    </div>
+
+    <iframe class = "home" id = "page-iframe" src = "Html/HomePage.html" height="100lvh" width="100lvw"></iframe>
+
+    <script>
+        //localStorage.removeItem('transactions');
+        if(localStorage.getItem('transactions') == null){
+            let transactions = [];
+            let balance = 5000;
+            balance = generateTransactions(100, transactions, balance);
+            sortArray(transactions, ['date', 'descending', 0]);
+
+            transactions = JSON.stringify(transactions);
+            balance = JSON.stringify(balance);
+            localStorage.setItem('transactions', transactions);
+            localStorage.setItem('balance', balance);
+        }
+
+        const iframe = document.getElementById('page-iframe');
+        const ribbon = document.getElementById('ribbon');
+        for(const button of ribbon.children){
+            button.addEventListener('click', () => {
+                changePage(iframe, button.id);
+            });
+        }
+    </script>
+</body>
+</html>
+
+<!-- <center> 
+    document.write("<p>Infinite Bank - Zarządzaj swoimi transakcjami!</p>"); -- in <script>
+
+    <hr color="black" width="90%" height="7px">
+    <p>Wykonali: Filip Szpinek, Damian Pieczurczyk, Aleksander Rakoczy</p>
+</center> -->

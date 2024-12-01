@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statystyki</title>
+    <link rel = "stylesheet" href = "../Css/Global.css">
+    <link rel = "stylesheet" href = "../Css/StatisticsPage.css">
+    <script src = "../Js/Transactions.js"></script>
+    <script src = "../Js/StatisticsPage.js"></script>
+</head>
+<body class = 'no-select'>
+    <div id = "main-container">
+        <div id = "buttons">
+            <div class = "button pressed-button-color">
+                All time
+            </div>
+            <div class = "button button-color">
+                Last 30 days
+            </div>
+            <div class = "button button-color">
+                Last 7 days
+            </div>
+        </div>
+
+        <div id = "name-container">
+            <div class="title-container">
+                <div class = "title">
+                    <h4>Expense analisys (Names)➜</h3>
+                </div>
+            </div>
+            <div class = "statistics-div">
+                <div class = "statistics-container">    
+                    <h1 class = 'expenses' style="font-size: 3lvh"></h1>
+                    <div class = "statistic-list name-statistic-sum"></div>            
+                </div>
+                <div class = "statistics-container">
+                    <h1 class = 'expenses' style="font-size: 3lvh"></h1>
+                    <div class = "statistic-list name-statistic-amount"></div>
+                </div>
+            </div>
+        </div>
+        <div id = "category-container">
+            <div class="title-container">
+                <div class = "title">
+                    <h4>Expense analisys (Kategories)➜</h3>
+                </div>
+            </div>
+            <div class = "statistics-div">
+                <div class = "statistics-container">    
+                    <h1 class = 'expenses' style="font-size: 3lvh"></h1>
+                    <div class = "statistic-list category-statistic-list"></div>            
+                </div>
+                <div class = "statistics-container">
+                    <h1 class = 'expenses' style="font-size: 3lvh"></h1>
+                    <div class = "statistic-list category-statistic-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>    
+        let transactions = localStorage.getItem('transactions');
+        let balance = localStorage.getItem('balance');
+        transactions = JSON.parse(transactions);
+        balance = JSON.parse(balance);
+
+        convertToDate(transactions);
+
+        generateStats(transactions, 'name', 0, false, 0);
+        generateStats(transactions, 'name', 0, true, 1);
+        generateStats(transactions, 'category', 0, false, 2);
+        generateStats(transactions, 'category', 0, true, 3);
+
+        const buttons = document.getElementsByClassName('button');
+        let pressedButton = 1;
+        for(let i = 0; i < buttons.length; i++){
+            const button = buttons[i];
+            button.addEventListener('click', () => {
+                buttonPressed(i, button);
+            });
+        }
+    </script>
+
+</body>
+</html>

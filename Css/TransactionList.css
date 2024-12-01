@@ -1,0 +1,96 @@
+#table{
+    height: 14lvh;
+    background-color: white;
+}
+
+#info{
+    margin: 0px;
+    margin-left: 3lvh;
+    color: #aaa;
+    font-size: 3lvh;
+    text-align: left;
+}
+
+#names{
+    font-size: 3.8lvh;
+
+    display: flex;
+    align-items: center;
+    height: 10lvh;
+    
+    margin-bottom: 2lvh;
+    padding-left: 3lvh;
+    padding-right: 3lvh;
+}
+
+.transaction{
+    background-color: white;
+    width: calc(100% - 6lvh);
+    display: flex;
+    padding-left: 3lvh;
+    padding-right: 3lvh;
+}
+
+.container{
+    height: 10lvh;
+    text-align: left;
+    align-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.date{
+    width: 25%;
+    font-weight: bold;
+}
+
+
+.name{
+    width: 25%;
+    color: #555
+}
+
+.category{width: 30%;}
+
+#names > .container{
+    color: #999;
+    font-weight: normal;
+}
+
+#names > .container::after{
+    content: var(--text);
+    height: 5lvh;
+    aspect-ratio: 1;
+    align-content: center;
+}
+
+.amount{
+    width: 20%;
+    justify-content: right;
+    font-weight: bold;
+}
+
+.image{
+    height: 10lvh;
+    width: 10lvh;
+    justify-content: center;
+}
+
+#list{
+    width: 100lvw;
+
+    font-size: 3.8lvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1lvh;
+}
+
+#content{
+    overflow: scroll;
+    height: 86lvh;
+    width: 100lvw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

@@ -1,0 +1,161 @@
+#head{
+    height: fit-content;
+    width: 40lvw;
+    background-color: #fff;
+    padding: 3lvh;
+    padding-bottom: 0px;
+    justify-content: center;
+}
+
+.main-div-container{
+    font-size: 1.8lvh;
+    display: flex;
+    gap: 3lvw;
+    height: 7lvh;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2lvh;
+}
+
+#balance{
+    font-variant-numeric: tabular-nums;
+    margin: auto; 
+    margin-right: 0px;
+}
+
+#transaction-history{
+    height: 100%;
+    width: 30%;
+    align-content: center;
+    font-size: 2.5lvh;
+    border-radius: 1lvh;
+}
+
+#new-transaction{
+    height: 100%;
+    width: 30%;
+    align-content: center;
+    font-size: 2.5lvh;
+    border-radius: 1lvh;
+}
+
+#content{
+    height: 60lvh;
+    width: calc(40lvw + 6lvh);
+    border: 0px solid black;
+}
+
+iframe{
+    overflow: hidden;
+}
+
+#container{
+    margin-top: 6lvh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+#main-div{
+    margin-left: 20lvw;
+    margin-right: 7lvw;
+    height: 80lvh;
+    width: 40lvw;
+    display: flex;
+    flex-direction: column;
+}
+
+#statistics-div{
+    width: 17lvw;
+    height: fit-content;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 2vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.statistics-text{
+    color: #999; 
+    font-size: 2lvh; 
+    margin-top: 2lvh;
+    text-align: left; 
+    margin-bottom: 0px;
+}
+
+#expenses{
+    text-align: left;
+
+    margin-top: 1lvh; 
+    margin-bottom: 3lvh;
+}
+
+
+#side-list{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color: rgb(0, 190, 228);
+    text-align: left;
+}
+
+.statistic{
+    height: 6lvh;
+    width: 100%;
+    display: flex;
+}
+
+#statistic-list{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1lvh;
+}
+
+.statistic-container{
+    margin-top: 1.5lvh;
+    width: 60%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.statistic-bar{
+    margin-top: 1lvh;
+    width: 90%;
+    height: 1lvh;
+    background-color: #ddd;
+    border-radius: 1lvh;
+}
+
+.statistic-progress{
+    border-radius: 1lvh;
+    height: 1lvh;
+}
+
+.category-name{
+    font-size: 2.3lvh;
+}
+
+.category-amount{
+    display: flex;
+    font-size: 2.3lvh;
+    width: 30%;
+    justify-content: right;
+    align-items: center;
+    font-weight: bold;
+}
+
+.image{
+    display: flex;
+    width: 7lvh;
+    height: 7lvh;
+    align-items: center;
+    justify-content: center;
+}
+

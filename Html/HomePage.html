@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel = "stylesheet" href = "../Css/HomePage.css">
+    <link rel = "stylesheet" href = "../Css/Global.css">
+    <script src = "../Js/Transactions.Js"></script>
+    <script src = "../Js/HomePage.js"></script>
+</head>
+<body class = 'no-select'>
+    <div id = "container">
+        <div id = "main-div">
+            <div id="head">
+                <div class = "main-div-container">
+                    <h1 class="title">Balance ➜</h1>
+                    <h1 id = "balance"></h1>
+                </div>
+                <div id = "buttons" class = "main-div-container"> 
+                    <div id = "new-transaction" class = "button-color">New Transaction</div>
+                    <div id = "transaction-history" class = "pressed-button-color">Transaction History</div>
+                </div>
+            </div>
+            <iframe id = "content" class = "transaction-history" src = "TransactionList.html" width="100lvw" height="200lvh"></iframe>
+        </div>
+
+        <div id = "side-list">
+            <div id = "statistics-div">
+                <div class = "main-div-container">
+                    <h2 class = "title">Expense analysis ➜</h2>
+                </div>
+                <p class = "statistics-text">last 30 days for all products</p>
+                <h3 id = "expenses"></h3>
+                <div id = "statistic-list"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let transactions = localStorage.getItem('transactions');
+        let balance = localStorage.getItem('balance');
+        transactions = JSON.parse(transactions);
+        balance = JSON.parse(balance);
+
+        for(let i = 0; i < transactions.length; i++){
+            transactions[i][3] = new Date(transactions[i][3]);
+        }
+
+        const buttons = document.getElementById('buttons');
+        const iframe = document.getElementById('content');
+        for(const button of buttons.children){
+            button.addEventListener('click', () => {
+                changeIframe(iframe, button.id);
+            });
+        }
+
+        updatePage(balance, transactions);
+    </script>
+</body>
+</html>

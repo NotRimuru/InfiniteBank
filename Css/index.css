@@ -1,0 +1,83 @@
+html{
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#header {
+    margin-top: 0px;
+    padding-left: 20%;
+    padding-bottom: 0.8lvh;
+    height: 7lvh;
+    letter-spacing: 0.1lvh;
+    color: #FFF;
+    font-size: 4lvh;
+    font-weight: bold;
+    background: linear-gradient(0deg, rgba(2,148,177,0.9) 0%, rgba(0, 171, 206, 0.9) 100%);
+    text-align: left;
+    align-content: center;
+}
+
+bankName{
+    font-weight: normal;
+    font-family: Verdana;
+    letter-spacing: 0.1lvh;
+}
+
+#ribbon{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    background-color: rgb(0, 190, 228);
+    height: 8lvh;
+    padding-left: 20%;
+}
+
+#home{
+    align-content: center;
+    height: 5lvh;
+    width: 20lvh;
+    font-size: 3lvh;
+}
+
+#transaction-history{
+    align-content: center;
+    height: 5lvh;
+    width: 20lvh;
+    font-size: 3lvh;
+}
+
+#transaction-statistics{
+    align-content: center;
+    height: 5lvh;
+    width: 20lvh;
+    font-size: 3lvh;
+}
+
+#page-iframe{
+    width: 100lvw;
+    height: 90lvh;
+    border: 0px solid black;
+}
+
+iframe{
+    border: 0px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

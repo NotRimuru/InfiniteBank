@@ -1,0 +1,202 @@
+body{
+    overflow: hidden;
+}
+
+#main-container{
+    height: fit-content;
+    width: 100lvw;
+    margin-left: 20lvw;
+    margin-top: 6lvh;
+    display: flex;
+    gap: 5lvw;
+}
+
+#history-container{
+    display: flex;
+    flex-direction: column;
+
+    height: 80lvh;
+    width: 42lvw;
+}
+
+#table{
+    display: flex;
+    align-items: center;
+    height: 8lvh;
+    background-color: white;
+    margin-bottom: 1lvh;
+    padding-left: 3lvh;
+    padding-right: 3lvh;
+    font-size: 2.5lvh;
+}
+
+#list{
+    height: 70lvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5lvh;
+
+    font-size: 2.5lvh;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.transaction{
+    background-color: white;
+    width: calc(100% - 6lvh);
+    display: flex;
+    padding-left: 3lvh;
+    padding-right: 3lvh;
+}
+
+.container{
+    height: 7lvh;
+    text-align: left;
+    align-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.date{
+    width: 25%;
+    font-weight: bold;
+}
+
+
+.name{
+    width: 25%;
+    color: #555
+}
+
+.category{width: 30%;}
+
+#table > .container{
+    color: #999;
+    font-weight: normal;
+}
+
+#table > .container::after{
+    content: var(--text);
+    height: 5lvh;
+    aspect-ratio: 1;
+    align-content: center;
+}
+
+.amount{
+    width: 20%;
+    justify-content: right;
+    font-weight: bold;
+}
+
+.image{
+    height: 7lvh;
+    width: 7lvh;
+    justify-content: center;
+}
+
+#filter-container {
+    align-self: center;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 60lvh;
+    width: 20lvw;
+
+    justify-content: space-evenly;
+    align-items: center;
+}
+ 
+.input {
+    padding: 1lvh;
+    font-size: 2lvh;
+    border: 0.1lvh solid #ccc;
+    color: grey;
+    border-radius: 1lvh;
+    width: 77%;
+    height: 1.8lvh;
+}
+
+#filter{
+    padding: 1.5lvh 3lvh;
+    background-color: rgb(0, 190, 228);
+    border-radius: 2lvh;
+    width: 50%;
+    color: white;
+    border: none;
+    margin: 2lvh;
+    cursor: pointer;
+}
+
+.label{
+    font-size: 2.5lvh;
+}
+
+.multiselect {
+    width: 16lvw;
+}
+
+.selectBox {
+    position: relative;
+    width: 16lvw;
+}
+
+.selectBox select{
+    width: 100%;
+    height: 4lvh;
+    border: 0.1lvh solid #ccc;
+    border-radius: 1lvh;
+
+    font-size: 2lvh;
+
+    color: grey;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.checkboxes {
+    background-color: white;
+    width: 16lvw;
+    height: fit-content;
+    max-height: 30lvh;
+    overflow-y: scroll;
+    left: 69lvw;
+
+    position: absolute;
+    border: 1px #dadada solid;
+    font-size: 2lvh;
+
+    display: none;
+    flex-direction: column;
+
+    border-radius: 0.7lvh;
+    border: 0.1lvh solid #666;
+
+    color: #666;
+
+    margin-top: 0.5lvh;
+}
+
+.checkbox-input{
+    height: 3lvh;
+    display: flex;
+
+    align-items: center;
+}
+
+.checkbox{
+    height: 2lvh;
+    width: 2lvh;
+    accent-color: var(--color, #aaa);
+}
