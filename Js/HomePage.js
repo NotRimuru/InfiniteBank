@@ -19,6 +19,7 @@ function changeIframe(Iframe, ButtonId){
 }
 
 function updatePage(){
+    document.write('Balance');
     let transactions = localStorage.getItem('transactions');
     let balance = localStorage.getItem('balance');
 
