@@ -25,6 +25,8 @@ function updatePage(){
     transactions = JSON.parse(transactions);
     balance = JSON.parse(balance);
 
+    console.log(balance)
+
     transactions = convertToDate(transactions);
 
     const balanceText = document.getElementById("balance");
