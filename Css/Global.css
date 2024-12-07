@@ -20,11 +20,11 @@ body {
 }
 
 .button-color{
-    background-color: rgb(0, 190, 228);
+    background-color: rgb(228, 0, 0);
     color: white;
 }
 
 .pressed-button-color{
-    background-color: #f1f1f1;
-    color: rgb(0, 190, 228);
+    background-color: #ffcbcb;
+    color: rgb(228, 0, 0);
 }
